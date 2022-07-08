@@ -11,14 +11,16 @@ function updateSubtotal(product) {
 
 function calculateAll() {
 
-  // ITERATION 2
+  // ITERATION 2 AND 3
   let productRow = Array.from(cart.getElementsByClassName("product"));
+  let pricesArray = [];
   productRow.forEach(element => {
+    pricesArray.push(updateSubtotal(element));
     return updateSubtotal(element);
   });
 
-  // ITERATION 3
-  //... your code goes here
+  let totalPrice = pricesArray.reduce((a, b) => a + b);
+  document.querySelector("#total-value span").innerHTML = totalPrice;
 }
 
 // ITERATION 4
